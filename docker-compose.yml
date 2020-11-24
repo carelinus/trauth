@@ -2,6 +2,7 @@ version: "3"
 services:
   trauth:
     image: trauth
+    build: .
     container_name: trauth
     environment:
       - TRAUTH_DOMAIN=yourdomain.local
