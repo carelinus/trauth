@@ -148,6 +148,7 @@ func main() {
 		Path:     cookiePath,
 		MaxAge:   ((60 * 60) * 24) * 365, // ((h) d) y
 		HttpOnly: true,
+		Secure:   true,
 	}
 
 	// register the User type for getUser()
