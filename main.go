@@ -50,13 +50,13 @@ func check(next http.Handler) http.Handler {
 			user, pass, ok := r.BasicAuth()
 
 			if !ok {
-				log.Printf("no basic auth creds provided from %s\n", r.RemoteAddr)
+				log.Printf("no basic auth creds provided from %s\n", r.Header.Get("X-Forwarded-For"))
 				http.Error(w, http.StatusText(401), 401)
 				return
 			}
 
 			if !passwordFile.Match(user, pass) {
-				log.Printf("invalid basic auth creds provided from %s\n", r.RemoteAddr)
+				log.Printf("invalid basic auth creds provided from %s\n", r.Header.Get("X-Forwarded-For"))
 				http.Error(w, http.StatusText(401), 401)
 				return
 			}
@@ -75,7 +75,7 @@ func check(next http.Handler) http.Handler {
 				r.Header.Get("X-Forwarded-Port"),
 				r.Header.Get("X-Forwarded-URI"))
 			log.Printf("authenticated %s from %s using basic auth, redirecting to %s",
-				user, r.RemoteAddr, newDestination)
+				user, r.Header.Get("X-Forwarded-For"), newDestination)
 
 			http.Redirect(w, r, newDestination, http.StatusFound)
 			return
