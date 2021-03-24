@@ -14,3 +14,4 @@
 # other
 htpass*
 build/
+dist/
