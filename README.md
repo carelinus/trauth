@@ -1,7 +1,5 @@
 # trauth
 
-[![Docker build & Push](https://github.com/leonjza/trauth/actions/workflows/docker.yml/badge.svg)](https://github.com/leonjza/trauth/actions/workflows/docker.yml)
-
 A simple [ForwardAuth](https://docs.traefik.io/middlewares/forwardauth/) service for Traefik.
 
 Unlike other ForwardAuth projects that enable neat OpenID / OAuth flows, `trauth` reads a simple `htpasswd` file as a credentials database, prompting via HTTP basic auth. This is perfect for private, isolated services served using Traefik needing a simple SSO solution.
