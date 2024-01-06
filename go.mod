@@ -3,7 +3,7 @@ module github.com/leonjza/trauth
 go 1.18
 
 require (
-	github.com/gorilla/securecookie v1.1.1
+	github.com/gorilla/securecookie v1.1.2
 	github.com/gorilla/sessions v1.2.1
 	github.com/pkg/errors v0.9.1
 	github.com/tg123/go-htpasswd v1.2.1
